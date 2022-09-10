@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: payment-backend
+  name: external-backend
   annotations:
     alb.ingress.kubernetes.io/healthcheck-path: "/payments"
 spec:
   selector:
-    app:  payment-backend
+    app:  external-backend
   type: NodePort
   ports:
     - port: 8080

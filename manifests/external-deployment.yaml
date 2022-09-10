@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: payment-backend
+  name: external-backend
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: payment-backend
+      app: external-backend
   template:
     metadata:
       labels:
-        app: payment-backend
+        app: external-backend
     spec:
       containers:
-        - name: payment-backend
-          image: 811288377093.dkr.ecr.us-west-2.amazonaws.com/payment-backend:latest
+        - name: external-backend
+          image: 811288377093.dkr.ecr.us-west-2.amazonaws.com/external-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
